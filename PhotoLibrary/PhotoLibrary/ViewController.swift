@@ -11,7 +11,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private var passwordField: UITextField!
     private var confirmButton: UIButton!
     private var newUserButton: UIButton!
-    private var backImageView: UIImageView!
     private var date: Date!
     private var userDictionary: [String: String] = [:]
 
@@ -26,23 +25,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         addLabel(label: passwordLabel)
         addLabel(label: registrationLabel)
         
-        backImageView = UIImageView()
-        backImageView.frame = CGRect(x: view.bounds.midX - view.bounds.width / 2,
-                                     y: view.bounds.minY,
-                                     width: view.bounds.width,
-                                     height: view.bounds.height / 3.5)
-        backImageView.image = UIImage(named: "background")
-        backImageView.contentMode = .scaleAspectFill
-        customScrollView.addSubview(backImageView)
-        backImageView.addSubview(infoLabel)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: ViewController.keyboardWillShowNotification, object: nil)
         
         // for fast app testing
         let button = UIButton()
         button.frame = CGRect(x: view.bounds.midX - 100, y: view.bounds.maxY - 200, width: 200, height: 100)
-        button.setTitle("PRESS TO TEST APP", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitle("TEST", for: .normal)
+        button.setTitleColor(.init(hexString: "#6D9886"), for: .normal)
         button.addTarget(self, action: #selector(onButton), for: .touchUpInside)
         customScrollView.addSubview(button)
     }
@@ -91,17 +80,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                                 userFieldText: "",
                                                 passLabelText: "password",
                                                 passFieldText: "",
-                                                newUserText: "Add new user account",
-                                                confirmText: "ENTER")
+                                                newUserText: "Add new user",
+                                                confirmText: "Enter")
                     self.registrationLabel.alpha = 0
-                    self.confirmButton.setTitleColor(.darkGray, for: .normal)
+                    self.confirmButton.setTitleColor(.init(hexString: "#F2E7D5"),
+                                                     for: .normal)
                 }
             }
         }
     }
     
     @objc private func addNewUser() {
-        if newUserButton.titleLabel?.text == "Add new user account" {
+        if newUserButton.titleLabel?.text == "Add new user" {
             UIView.animate(withDuration: 0.3, delay: 0, options: []) {
                 self.userLabel.alpha = 0
                 self.passwordLabel.alpha = 0
@@ -109,12 +99,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             } completion: { _ in
                 UIView.animate(withDuration: 0.3, delay: 0) {
                     self.labelAnimationSettings(alpha: 1,
-                                                userLabelText: "new user",
-                                                userFieldText: "Enter new user name",
-                                                passLabelText: "new password",
-                                                passFieldText: "Enter new password",
+                                                userLabelText: "user",
+                                                userFieldText: "user",
+                                                passLabelText: "password",
+                                                passFieldText: "password",
                                                 newUserText: "Cancel",
-                                                confirmText: "CONFIRM NEW USER")
+                                                confirmText: "Confirm")
                 }
             }
         } else {
@@ -129,9 +119,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                                 userFieldText: "",
                                                 passLabelText: "password",
                                                 passFieldText: "",
-                                                newUserText: "Add new user account",
-                                                confirmText: "ENTER")
-                    self.confirmButton.setTitleColor(.darkGray, for: .normal)
+                                                newUserText: "Add new user",
+                                                confirmText: "Enter")
                     self.registrationLabel.alpha = 0
                 }
             }
@@ -155,8 +144,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         registrationLabel = UILabel()
         
         let labelWidth: CGFloat = view.bounds.width
-        let labelHeight: CGFloat = 70
-        customScrollView.backgroundColor = .black
+        let labelHeight: CGFloat = 50
+        customScrollView.backgroundColor = .init(hexString: "#393E46")
         customScrollView.frame = view.bounds
         view.addSubview(customScrollView)
         
@@ -164,30 +153,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                      y: view.bounds.midY + labelHeight,
                                      width: labelWidth / 1.5,
                                      height: labelHeight)
-        confirmButton.layer.cornerRadius = labelHeight / 2
-        confirmButton.backgroundColor = .white
-        confirmButton.titleLabel?.font = UIFont(name: "AbrilFatface-Regular", size:20)
-        confirmButton.setTitle("ENTER", for: .normal)
-        confirmButton.setTitleColor(.darkGray, for: .normal)
+        confirmButton.layer.cornerRadius = 22
+        confirmButton.backgroundColor = .init(hexString: "#6D9886")
+        confirmButton.titleLabel?.font = UIFont(name: "Manrope-Regular",
+                                                size:25)
+        confirmButton.setTitle("Enter", for: .normal)
+        confirmButton.setTitleColor(.init(hexString: "#F2E7D5"), for: .normal)
         confirmButton.addTarget(self, action: #selector(onConfirmButton), for: .touchUpInside)
         customScrollView.addSubview(confirmButton)
         
-        newUserButton.setTitleColor(.systemBlue, for: .normal)
-        newUserButton.frame = confirmButton.frame.offsetBy(dx: 0, dy: 75)
-        newUserButton.setTitle("Add new user account", for: .normal)
+        newUserButton.setTitleColor(.init(hexString: "#F7F7F7"), for: .normal)
+        newUserButton.frame = confirmButton.frame.offsetBy(dx: 0, dy: 50)
+        newUserButton.setTitle("Add new user", for: .normal)
         newUserButton.addTarget(self, action: #selector(addNewUser), for: .touchUpInside)
         customScrollView.addSubview(newUserButton)
     }
     
     private func addTextField(field: UITextField) {
         let fieldWidth: CGFloat = view.bounds.width - 175
-        let fieldHeight: CGFloat = 40
+        let fieldHeight: CGFloat = 50
         field.delegate = self
         field.clearButtonMode = .always
         field.textAlignment = .center
         field.clearsOnBeginEditing = true
-        field.backgroundColor = .systemGray5
-        field.layer.cornerRadius = fieldHeight / 2
+        field.backgroundColor = .init(hexString: "#F7F7F7")
+        field.layer.cornerRadius = 22
         if field == userField {
             field.frame = CGRect(x: view.bounds.midX - fieldHeight,
                                  y: view.bounds.midY - fieldWidth / 1.5,
@@ -205,6 +195,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private func addLabel(label: UILabel) {
         let labelWidth: CGFloat = view.bounds.width
         let labelHeight: CGFloat = 70
+        infoLabel.textColor = .init(hexString: "#6D9886")
+        userLabel.textColor = .init(hexString: "#F2E7D5")
+        passwordLabel.textColor = .init(hexString: "#F2E7D5")
         
         if label == infoLabel {
             label.frame = CGRect(x: view.bounds.midX - labelWidth / 2,
@@ -212,17 +205,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                  width: labelWidth,
                                  height: labelHeight)
             label.text = "PHOTO GALLERY"
-            label.font = UIFont(name: "AbrilFatface-Regular", size:40)
+            label.font = UIFont(name: "AbrilFatface-Regular", size:45)
         } else if label == userLabel {
             label.text = "user"
-            label.font = UIFont(name: "AbrilFatface-Regular", size:25)
+            label.font = UIFont(name: "Manrope-Regular", size:22)
         } else if label == passwordLabel {
             passwordLabel.text = "password"
-            label.font = UIFont(name: "AbrilFatface-Regular", size:25)
+            label.font = UIFont(name: "Manrope-Regular", size:22)
         } else {
             label.frame = confirmButton.frame.offsetBy(dx: 0, dy: -75)
             label.text = ""
-            label.font = UIFont(name: "AbrilFatface-Regular", size: 15)
+            label.font = UIFont(name: "Manrope-Regular", size: 15)
             label.alpha = 0
         }
         label.textColor = .white
@@ -245,9 +238,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         passwordLabel.text = passLabelText
         passwordField.text = passFieldText
         newUserButton.setTitle(newUserText, for: .normal)
-        passwordLabel.font = UIFont(name: "AbrilFatface-Regular", size: 22)
+        passwordLabel.font = UIFont(name: "Manrope-Regular", size: 20)
         confirmButton.setTitle(confirmText, for: .normal)
-        confirmButton.setTitleColor(.systemGreen, for: .normal)
+        confirmButton.setTitleColor(.init(hexString: "#F2E7D5"), for: .normal)
     }
     
     private func transitToAddPhotoScreen() {

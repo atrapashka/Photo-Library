@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>AbrilFatface-Regular.ttf</string>
+		<string>Manrope-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
