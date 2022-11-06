@@ -10,7 +10,7 @@ class GalleryScreen: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.barTintColor = .clear
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .init(hexString: "#F2E7D5")
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .black
         
@@ -21,6 +21,9 @@ class GalleryScreen: UIViewController {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        collectionView.backgroundColor = .init(hexString: "#393E46")
+        
         view.addSubview(collectionView)
     }
 }
@@ -39,7 +42,6 @@ extension GalleryScreen: UICollectionViewDelegate & UICollectionViewDataSource {
                                       height: cell.bounds.height)
         imageView.contentMode = .scaleToFill
         cell.contentView.addSubview(imageView)
-        collectionView.backgroundColor = .black
         return cell
     }
 }

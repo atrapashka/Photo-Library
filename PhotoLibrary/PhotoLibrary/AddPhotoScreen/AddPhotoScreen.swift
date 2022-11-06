@@ -16,10 +16,10 @@ class AddPhotoScreen: UIViewController, UIImagePickerControllerDelegate & UINavi
         seeButton = UIButton()
         
         navigationController?.navigationBar.barTintColor = .clear
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .init(hexString: "#F2E7D5")
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .black
-        view.backgroundColor = .black
+        view.backgroundColor = .init(hexString: "#393E46")
         
         setupUI()
         addButton(button: addButton)
@@ -50,7 +50,7 @@ class AddPhotoScreen: UIViewController, UIImagePickerControllerDelegate & UINavi
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         
-        infoLabel.font = UIFont(name: "AbrilFatface-Regular", size:20)
+        infoLabel.font = UIFont(name: "Manrope-Regular", size:20)
         infoLabel.textColor = .systemPink
         infoLabel.textAlignment = .center
         infoLabel.alpha = 0
@@ -58,27 +58,28 @@ class AddPhotoScreen: UIViewController, UIImagePickerControllerDelegate & UINavi
     }
     
     private func addButton(button: UIButton) {
-        let width: CGFloat = 150
-        let height: CGFloat = 45
+        let width: CGFloat = view.bounds.width / 1.3
+        let height: CGFloat = 50
         if button == addButton {
-            button.frame = CGRect(x: view.bounds.midX - width / 2 - 100,
-                                  y: view.bounds.maxY - width,
+            button.frame = CGRect(x: view.bounds.midX - width / 2,
+                                  y: view.bounds.maxY - width / 2,
                                   width: width,
                                   height: height)
-            button.titleLabel?.font = UIFont(name: "AbrilFatface-Regular", size:20)
-            button.setTitle("ADD PHOTO", for: .normal)
+            button.titleLabel?.font = UIFont(name: "Manrope-Regular", size:35)
+            button.setTitle("+", for: .normal)
             button.addTarget(self, action: #selector(onAddButton), for: .touchUpInside)
         } else {
-            button.frame = CGRect(x: view.bounds.midX - width / 2 + 100,
-                                  y: view.bounds.maxY - width,
+            button.frame = CGRect(x: view.bounds.midX - width / 2,
+                                  y: view.bounds.maxY - height * 2,
                                   width: width,
                                   height: height)
-            button.titleLabel?.font = UIFont(name: "AbrilFatface-Regular", size:20)
-            button.setTitle("ALL PHOTOS", for: .normal)
+            button.titleLabel?.font = UIFont(name: "Manrope-Regular", size:25)
+            button.setTitle("see all", for: .normal)
             button.addTarget(self, action: #selector(onSeeButton), for: .touchUpInside)
         }
-        button.backgroundColor = .darkGray
-        button.layer.cornerRadius = height / 2
+        button.backgroundColor = .init(hexString: "#6D9886")
+        button.setTitleColor(.init(hexString: "#F2E7D5"), for: .normal)
+        button.layer.cornerRadius = 22
         view.addSubview(button)
     }
     
