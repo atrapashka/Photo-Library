@@ -9,9 +9,11 @@ The main requirement for this app was working with UserDefaults, ImagePicker, Ke
 There's some special things about it:
 - I use custom fonts for better look of an app.
 - You can set your username and password and use it next time you open this app.
-- I use NavigationController.
-- Planning to add: photo editor, language localization.
+- I use NavigationController for transit between screens
+- Planning to add: photo editor, language localization
 - Planning to improve: code, UI/UX.
+- Also, I use a bit vintage color palette for UI:
+<img width="520" alt="image" src="https://user-images.githubusercontent.com/97976090/200185064-0da9f0e6-4b43-4105-8a07-b73649d61fcc.png">
 
 <h1 align="center">
   Technology stack 💻
@@ -28,13 +30,18 @@ There's some special things about it:
 </h1>
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/97976090/199675151-cf2f1a7a-a12a-47d8-9eb5-f704a85351f7.png" width="150">
+  <img src="https://user-images.githubusercontent.com/97976090/200184351-e39db0d7-74d0-4961-9d01-a5a2982aef31.png" width="200">
   &nbsp&nbsp
-  <img src="https://user-images.githubusercontent.com/97976090/199675088-081ad32a-48c5-4e6d-820d-c3f3cd478d9f.png" width="150">
+  <img src="https://user-images.githubusercontent.com/97976090/200184362-464d7edb-f718-426b-b7fb-34801b36bb04.png" width="200">
   &nbsp&nbsp
-  <img src="https://user-images.githubusercontent.com/97976090/199675110-c8c9ebec-88ad-4bf1-85bd-c6be09579361.png" width="150">
+  <img src="https://user-images.githubusercontent.com/97976090/200184519-8ef6c9b9-3665-4c92-b79d-ac4a7ad9acdf.png" width="200">
+</div>
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/97976090/200184723-c6b77519-7550-4ca6-9060-810d0c503f20.png" width="200">
   &nbsp&nbsp
-  <img src="https://user-images.githubusercontent.com/97976090/199675123-12f4e26d-10ac-44a0-870e-0e8bff371334.png" width="150">
+  <img src="https://user-images.githubusercontent.com/97976090/200184729-6add9d55-6de7-4552-99cb-c2c8b71aed95.png" width="200">
+  &nbsp&nbsp
+  <img src="https://user-images.githubusercontent.com/97976090/200184576-f7777523-b687-4bbb-b6e1-50c73cf60e9f.png" width="200">  
 </div>
 
 <h1 align="center">
