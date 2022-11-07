@@ -7,7 +7,7 @@ Photo-Library - it's one of the task that I complete in courses <img src="https:
 The main requirement for this app was working with UserDefaults, ImagePicker, Keychain and User Authorization.
 
 There's some special things about it:
-- I use custom fonts for better look of an app.
+- I use custom fonts for better look.
 - You can set your username and password and use it next time you open this app.
 - I use NavigationController for transit between screens
 - Planning to add: photo editor, language localization
